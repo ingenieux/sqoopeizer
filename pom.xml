@@ -22,7 +22,8 @@
     </properties>
     
     <scm>
-        <connection>scm:git:git@github.com:ingenieux/sqoopeizer.git</connection>
+        <connection>scm:git:ssh://github.com/ingenieux/sqoopeizer.git</connection>
+        <developerConnection>scm:git:git+ssh://git@github.com/ingenieux/sqoopeizer.git</developerConnection>
     </scm>
 
     <dependencies>
