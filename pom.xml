@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mainClass>io.ingenieux.sqoopeizer.Main</mainClass>
     </properties>
-    
+
     <scm>
         <url>scm:git:git@github.com:ingenieux/sqoopeizer.git</url>
         <connection>scm:git:git@github.com:ingenieux/sqoopeizer.git</connection>
@@ -72,6 +72,11 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5</version>
             </plugin>
         </plugins>
     </build>
