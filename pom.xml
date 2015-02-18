@@ -8,7 +8,7 @@
 
     <groupId>io.ingenieux</groupId>
     <artifactId>sqoopeizer</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>sqoopeizer</name>
@@ -22,7 +22,7 @@
         <url>scm:git:git://github.com/ingenieux/sqoopeizer.git</url>
 	<connection>scm:git:git://github.com/ingenieux/sqoopeizer.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/ingenieux/sqoopeizer.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>sqoopeizer-0.0.2</tag>
   </scm>
 
     <dependencies>
