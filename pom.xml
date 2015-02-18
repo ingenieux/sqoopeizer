@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
@@ -10,7 +8,7 @@
 
     <groupId>io.ingenieux</groupId>
     <artifactId>sqoopeizer</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>sqoopeizer</name>
@@ -24,7 +22,8 @@
         <url>scm:git:git://github.com/ingenieux/sqoopeizer.git</url>
 	<connection>scm:git:git://github.com/ingenieux/sqoopeizer.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/ingenieux/sqoopeizer.git</developerConnection>
-    </scm>
+      <tag>sqoopeizer-0.0.1</tag>
+  </scm>
 
     <dependencies>
         <dependency>
