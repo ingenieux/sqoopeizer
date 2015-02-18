@@ -23,7 +23,7 @@
     <scm>
         <url>scm:git:git://github.com/ingenieux/sqoopeizer.git</url>
 	<connection>scm:git:git://github.com/ingenieux/sqoopeizer.git</connection>
-        <developerConnection>scm:git:git://github.com/ingenieux/sqoopeizer.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/ingenieux/sqoopeizer.git</developerConnection>
     </scm>
 
     <dependencies>
