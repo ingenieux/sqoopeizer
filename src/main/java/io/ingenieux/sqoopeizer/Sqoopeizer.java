@@ -5,24 +5,26 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class Sqoopeizer {
+public class Sqoopeizer implements Constants {
+
   public String alg; // = "AES/ECB/PKCS5Padding";
-  
+
   final String passphrase; // = "PASSWORD";
-  
+
   final String salt; // = "SALT";
-  
+
   final int iterations; // = 10000;
-  
+
   final int keyLen; // = 128;
-  
+
   public Sqoopeizer() {
-    this(System.getProperty("org.apache.sqoop.credentials.loader.crypto.passphrase", "PASSWORD"),
-         System.getProperty("org.apache.sqoop.credentials.loader.crypto.alg", "AES/ECB/PKCS5Padding"),
-         System.getProperty("org.apache.sqoop.credentials.loader.crypto.salt", "SALT"),
-         Integer.getInteger("org.apache.sqoop.credentials.loader.crypto.iterations", 10000),
-         Integer.getInteger("org.apache.sqoop.credentials.loader.crypto.salt.key.len", 128)
-         );
+    this(System.getProperty(PASSPHRASE_PROPERTY,
+                            DEFAULT_PASSPHRASE),
+         System.getProperty(PROPERTY_ALG, DEFAULT_ALG),
+         System.getProperty(PROPERTY_SALT, DEFAULT_SALT),
+         Integer.getInteger(PROPERTY_ITER, DEFAULT_ITER),
+         Integer.getInteger(PROPERTY_KEYLEN, DEFAULT_KEYLEN)
+    );
   }
 
   public Sqoopeizer(String passphrase, String alg, String salt, int iterations, int keyLen) {
@@ -34,16 +36,20 @@ public class Sqoopeizer {
   }
 
   public SqoopeizerResult cryptPassword(String password) throws Exception {
-    SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+    SecretKeyFactory factory = SecretKeyFactory.getInstance(KEYFACTORY);
 
     String algOnly = alg.split("/")[0];
 
-    SecretKeySpec key = new SecretKeySpec(factory.generateSecret(new PBEKeySpec(passphrase.toCharArray(), salt.getBytes(), iterations, keyLen)).getEncoded(), algOnly);
+    SecretKeySpec
+        key =
+        new SecretKeySpec(factory.generateSecret(
+            new PBEKeySpec(passphrase.toCharArray(), salt.getBytes(), iterations, keyLen))
+                              .getEncoded(), algOnly);
 
     Cipher crypto = Cipher.getInstance(alg);
 
     crypto.init(Cipher.ENCRYPT_MODE, key);
-    
+
     byte[] encryptedBytes = crypto.doFinal(password.getBytes());
 
     return new SqoopeizerResult(passphrase, salt, iterations, keyLen, encryptedBytes);
