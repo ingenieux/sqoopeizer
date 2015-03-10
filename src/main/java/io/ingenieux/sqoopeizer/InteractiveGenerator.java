@@ -128,7 +128,6 @@ public class InteractiveGenerator implements Constants {
     lines.add(jdbcUrl);
     lines.add("--username");
     lines.add(username);
-    lines.add(String.format("--password-file %s.password", prefix));
 
     IOUtils.write(StringUtils.join(lines.iterator(), "\n"), new FileOutputStream(prefix + ".config"));
     IOUtils.write(password, new FileOutputStream(prefix + ".password"));
