@@ -1,8 +1,9 @@
+# coding=utf-8
+
 #Script para ejecutar sqoopeizer de acuerdo a los parametros de entrada del usuario
 #Diego Jaramillo Celis
 #11/03/2015
 
-# coding=utf-8
 import subprocess
 
 print 'Motores de bases de datos, digite: 1 (Oracle), 2 (SQL Server), 3 (iSeries DB2) \n'
