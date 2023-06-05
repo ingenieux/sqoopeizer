@@ -1,5 +1,6 @@
 package io.ingenieux.sqoopeizer;
 
+import io.github.pixee.security.BoundedLineReader;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.BufferedReader;
@@ -22,7 +23,7 @@ public class Decryptor {
   private static String PROPERTY_CRYPTO_PASSPHRASE = "org.apache.sqoop.credentials.loader.crypto.passphrase";
 
   public static void main(String[] args) throws Exception {
-    String encoded = new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
+    String encoded = BoundedLineReader.readLine(new BufferedReader(new InputStreamReader(System.in)), 1000000).trim();
     
     System.out.println(decryptPassword(Base64.decodeBase64(encoded)));
   }
