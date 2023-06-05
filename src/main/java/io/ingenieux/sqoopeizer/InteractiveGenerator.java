@@ -1,5 +1,6 @@
 package io.ingenieux.sqoopeizer;
 
+import io.github.pixee.security.BoundedLineReader;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.docopt.Docopt;
@@ -150,6 +151,6 @@ public class InteractiveGenerator implements Constants {
       return new String(c.readPassword()).trim();
     }
 
-    return new BufferedReader(new InputStreamReader(System.in)).readLine().trim();
+    return BoundedLineReader.readLine(new BufferedReader(new InputStreamReader(System.in)), 1000000).trim();
   }
 }
